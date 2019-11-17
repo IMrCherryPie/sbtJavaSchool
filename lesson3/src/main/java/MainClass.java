@@ -6,15 +6,13 @@ public class MainClass {
     private static HashMap<String, Integer> hashMapWords;
     private static HashMap<String, Integer> hashMapLetterWord;
     private static ArrayList<String> textList;
+    private static Object Scanner;
 
     public static void main(String[] args) {
         hashMapWords = new HashMap<>();
         hashMapLetterWord = new HashMap<>();
-        StringBuilder str = readFile("D:\\СберТех\\sbtJavaSchool\\lesson3\\src\\main\\src\\text.txt");
-        /*
-        printRevesString(str);
+        StringBuilder str = readFile();
         printSortedWord(hashMapWords);
-        */
         /*for (Map.Entry<String, Integer> entry: hashMapLetterWord.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }*/
@@ -23,6 +21,19 @@ public class MainClass {
         printWord(hashMapLetterWord); // Печать слов в зависимости от длины
         printWord(hashMapWords); // печать слов в зависимости от частоты появления
         printRevesString(str); // Печать реверс строк
+
+        ArrayList<Integer> input = new ArrayList<Integer>();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите желаемые строки через клавишу enter, для окончания ввода напишите end");
+        while(true) {
+            String current = scan.next();
+            if (current.equals("end")) break;
+            if (current.matches("^\\d*$")) // для списка из 1 млн целых чисел и не чисел)
+                input.add(Integer.parseInt(current));
+        }
+        System.out.println(input);
+
+        printStringRows(str, input); // Печать строк заданных пользователем
 
 
     }
@@ -33,9 +44,15 @@ public class MainClass {
     }
 
     // Печать отсортированных слов по алфавиту
+    private static void printStringRows(StringBuilder string ,ArrayList<Integer> rows) {
+        String[] lines = string.toString().split("\\n");
+        for (int i = 0; i < rows.size(); i++) {
+            System.out.println(lines[rows.get(i)]);
+        }
+    }
+    // Печать отсортированных слов по алфавиту
     private static void printSortedWord(HashMap map) {
-        ArrayList <String> list = new ArrayList<String>();
-        list.addAll(map.keySet());
+        ArrayList<String> list = new ArrayList<String>(map.keySet());
         Collections.sort(list);
         list.forEach(System.out::println);
     }
@@ -67,15 +84,15 @@ public class MainClass {
     }
     // подсчёт букв в слове, слова без повторений
     private static void coutnLetterInWord(String word, int value){
-        if ((hashMapLetterWord.getOrDefault(word.toString(),-1) == -1)) {
+        if ((hashMapLetterWord.getOrDefault(word,-1) == -1)) {
             hashMapLetterWord.put(word, value);
         }
     }
     // Считывание текста из файла
-    private static StringBuilder readFile(String name){
+    private static StringBuilder readFile(){
         StringBuilder text = new StringBuilder();
         try(
-                FileReader reader = new FileReader(name)) {
+                FileReader reader = new FileReader("D:\\СберТех\\sbtJavaSchool\\lesson3\\src\\main\\src\\text.txt")) {
             // читаем посимвольно
             int c;
             StringBuilder str = new StringBuilder();

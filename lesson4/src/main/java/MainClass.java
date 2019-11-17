@@ -17,7 +17,7 @@ public class MainClass {
         }
 
         public int getCount(T t) {
-            return 0;
+            return getCount(t);
         }
 
         public int remove(T t) {
