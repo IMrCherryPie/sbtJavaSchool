@@ -31,7 +31,7 @@ public class MainClass {
             if (current.matches("^\\d*$")) // для списка из 1 млн целых чисел и не чисел)
                 input.add(Integer.parseInt(current));
         }
-        System.out.println(input);
+//        System.out.println(input);
 
         printStringRows(str, input); // Печать строк заданных пользователем
 
