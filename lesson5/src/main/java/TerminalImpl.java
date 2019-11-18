@@ -4,8 +4,6 @@ import interfaces.Terminal;
 
 public class TerminalImpl extends TerminalServerImpl implements Terminal {
 
-    private double bankAccount = 10000;
-
     public boolean setBankAccount(double cash) throws IncorrectMoneyInputException {
         if (cash % 100 != 0) throw new IncorrectMoneyInputException("Incorrect money input. (The machine gives out a multiple of 100)");
         {
