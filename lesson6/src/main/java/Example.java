@@ -31,8 +31,7 @@ public class Example {
 
     }
 
-
-
+//
     public static void analyzeClass(Object o) throws NoSuchFieldException, NoSuchMethodException, IntrospectionException {
         Class clazz = o.getClass();
         System.out.println("Имя класса: " + clazz);
