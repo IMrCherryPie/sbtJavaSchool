@@ -36,7 +36,6 @@ public class ConnectionBD {
         while (result.next()){
             System.out.println(result.getString(2) +"       "+ result.getString(3));
         }
-
     }
 
     private static void showRecordForName(String nameTable, String nameCollomn, String value) throws SQLException {

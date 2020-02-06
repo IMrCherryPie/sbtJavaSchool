@@ -9,7 +9,6 @@
         <module name="design-pattern-standart" />
         <module name="lesson18" />
         <module name="lesson17" />
-        <module name="lesson6" />
         <module name="design-patterns-client" />
         <module name="lesson13" />
         <module name="lesson12" />
@@ -19,9 +18,10 @@
         <module name="lesson4" />
         <module name="lesson3" />
         <module name="lesson2" />
-        <module name="lesson21" />
+        <module name="lesson25" />
         <module name="design-pattern" />
         <module name="lesson7" />
+        <module name="lesson6" />
         <module name="lesson8" />
         <module name="lesson9" />
         <module name="design-pattern-luxe" />
@@ -29,6 +29,8 @@
         <module name="design-pattern-impl-car" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="lesson21" target="7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
